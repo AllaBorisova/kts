@@ -1,7 +1,16 @@
 main.main
 	.section-news.section-news_page
 		.container 
-			h1.h1 Новости
+			.section-news__top
+				h1.h1 Новости
+				.section-news__sort 
+					span По годам
+					.select
+						select 
+							option 2024
+							option 2023
+							option 2022
+						span.focus
 			.section-news__items
 				- let count2 = 0;
 					while count2 < 4

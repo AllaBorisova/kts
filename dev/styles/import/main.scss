@@ -259,6 +259,74 @@
   &_page {
     padding-top: 3rem;
   }
+  &__top{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap:2rem;
+    flex-wrap:wrap;
+    margin-bottom: 3.2rem;
+    h1{
+      margin-bottom: 0;
+    }
+  }
+  &__sort{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap:1rem;
+    font-weight: 400;
+      font-size: 1.6rem;
+
+    select {
+      // A reset of styles, including removing the default dropdown arrow
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      padding: 0 1em 0 0;
+      margin: 0;
+      width: 100%;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: inherit;
+      line-height: inherit;
+      // Stack above custom arrow
+      z-index: 1;
+
+      // Remove dropdown arrow in IE10 & IE11
+      // @link https://www.filamentgroup.com/lab/select-css.html
+      &::-ms-expand {
+        display: none;
+      }
+      // Remove focus outline, will add on alternate element
+      outline: none;
+    }
+    .select {
+      display: grid;
+      grid-template-areas: "select";
+      align-items: center;
+      position: relative;
+      select,
+      &::after {
+        grid-area: select;
+      }
+      min-width: 11rem;
+      max-width: 30rem;
+      border: none;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      background: #e7ecf8;
+      border-radius:0.5rem;
+
+      &:not(.select--multiple)::after {
+        content: "";
+        justify-self: end;
+        width: 1.4rem;
+        height: 0.6rem;
+        background:url('data:image/svg+xml,<svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 1.5L8 7.5L1 1.5" stroke="%231C274C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>') center no-repeat;
+      }
+    }
+  }
   &__items {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -337,10 +405,24 @@
   &__inner {
     display: grid;
     grid-template-columns: auto 33.8rem;
+    grid-template-columns: calc(100% - 38.8rem) 33.8rem;
     gap: 5rem;
+    &_important{
+      grid-template-columns: auto 45.3rem;
+    }
+
     @media (max-width: $breakpoint-tablet) {
       grid-template-columns: 1fr;
       gap: 2rem;
+    }
+    &_photo{
+      grid-template-columns: calc(100% - 46.8rem) 33.8rem;
+      gap: 13rem;
+      @media (max-width: $breakpoint-tablet) {
+        display:flex;
+        gap:2rem;
+        flex-direction: column;
+      }
     }
   }
   &__img {
@@ -372,4 +454,50 @@
       grid-template-columns: 1fr;
     }
   }
+}
+.gallery-block{
+ position: relative;
+  &__slide{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    text-align: center;
+    img{
+      display:block;
+      border-radius: 5px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+  }
+  &__slider-nav {
+    margin-top: 1rem;
+    .slick-list{
+      margin:0 -0.5rem;
+    }
+    .slick-slide{
+      margin:0 0.5rem;
+    }
+  }
+  &__buttons{
+    position: absolute;
+    top:25rem;
+    width:calc(100% + 4rem);
+    z-index: 5;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    margin-left:-2rem;
+    margin-right: -2rem;
+  }
+  &__prev, &__next{
+    @include wh(4rem);
+    background:#f3f5fb;
+    border-radius:50%;
+    @include flexcc;
+    cursor:pointer;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+
 }

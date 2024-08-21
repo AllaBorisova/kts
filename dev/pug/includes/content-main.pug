@@ -123,3 +123,39 @@ main.main
 			.section-news__buttons 
 				a.button.button-bordered(href="") Все новости
 					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" transform="matrix(-1 0 0 1 22.5 2)" fill="#0E40B4" /><path d="M9.5 15L15.5 9M15.5 9H11M15.5 9V13.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" /></svg>
+	.section-form 
+		.container 
+			form.section-form__form.form()
+				.form__inner 
+					.form__left 
+							.h2 Задать вопрос
+							.form__text 
+									p Данная форма является официальным обращением в Муниципальное предприятие «Калининградтеплосеть» городского округа «Город Калининград» и влечёт правовые последствия, которые предусмотрены положениями Федерального закона Российской Федерации от 2 мая 2006 г. № 59-ФЗ «О порядке рассмотрения обращений граждан Российской Федерации». Персональные данные удаляются через 6 мес с даты ответа или по личному письменному заявления в приёмную по адресу ул. Нарвская 58.
+									p Ознакомиться с политикой МП «Калининградтеплосеть» в области персональных данных вы можете по ссылке.
+					.form__right 
+							.form__input 
+								input(type="text" value="" placeholder="ФИО")
+							.form__input 
+								input(type="text" value="" placeholder="Адрес")
+							.form__input 
+								input(type="email" value="" placeholder="E-mail")
+							.form__input 
+								input(type="tel" value="" placeholder="Телефон *" required)
+							.form__input
+								+custom-checkbox('Я даю согласие на обработку персональных данных')
+							.form__input
+								+custom-checkbox('С соглашением об использовании персональных данных ознакомлен')
+							.form__input
+								select
+									option Задать вопрос о начислениях и текущей задолженности
+									option Задать вопрос о начислениях и текущей задолженности
+									option Задать вопрос о начислениях и текущей задолженности
+							.form__input 
+								textarea(placeholder="Вопрос")
+							.form__input 
+
+							.form__input 
+								button.button.button_full(type="submit") 
+									span Отправить
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" transform="matrix(-1 0 0 1 22 2)" fill="white"></circle><path d="M9 15L15 9M15 9H10.5M15 9V13.5" stroke="#0E40B4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+
